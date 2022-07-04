@@ -1,4 +1,4 @@
-1. Git
+1. Git 정보
 
 작업 공간(Working directory) , 스테이지(Staging Area), 저장소(Repository)로 이루어짐.
 
@@ -107,6 +107,8 @@ Annotated Tag : 태거 이름, 이메일, 날짜, 커멘트 등을 함께 저장
 Lightweight Tag : 단순 태깅
 
 $ git tag [-a] [태그 이름] [기타 옵션]
+
+
 
 
 
