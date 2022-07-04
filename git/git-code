@@ -1,0 +1,112 @@
+1. Git
+
+작업 공간(Working directory) , 스테이지(Staging Area), 저장소(Repository)로 이루어짐.
+
+저장소에는 로컬 저장소 , 원격 저장소로 이루어짐.
+로컬 저장소는 .git , 원격 저장소는 Github , Bitbucket
+
+리눅스 환경에서 설치 
+=> $ sudo apt-get install git-all
+
+2. Git 설정
+
+- 사용자 설정
+$ git config --global user.name "xxxx"
+$ git config --global user.email xxxx
+--global을 빼면 저장소마다 별도로 설정 가능
+
+- 편집기 설정
+$ git config --global core.editor nano
+vi가 익숙하지 않으면 편집기를 nano로 설정
+
+$ git config --list
+설정을 보여줌. (이름과 이메일..)
+
+3. Git help
+$ git help (config)
+config는 생략 가능
+
+4. Git 저장소 만들기
+로컬 디렉터리에 저장소 새로 만들기(git init)
+
+5. 변경 이력 저장하기
+작업 디렉터리 내의 파일은 Untracked/Tracked 로 구분.
+Tracked 파일은 Unmodified(Committed) , Modified , Staged 로 구성
+$ git status 를 통해 파일의 상태를 알려준다.
+
+5-1 . 변경 이력 저장하기 (새 파일)
+처음 파일을 생성하면 untracked 상태. 이를 staged 상태로 바꾸는데 그 중간에 tracked 상태.
+
+$ git add newfile (Modified 상태 or untracked 상태인 파일 (새 파일)을 staged로 올리는 명령)
+위 명령어 작성 전에는 untracked 작성 후에는 staged 
+
+5-2 . 기존 파일
+git add를 통해 가능 or 기존 내용을 버리고 마지막 commit으로 돌아가고 싶다면 git restore 사용
+git add를 하였을 시 새 파일과는 다르게 Modified 상태로 나타남.
+
+5-3 . commit 방법
+
+tracked-staged 파일을 committed로 변경
+
+$ git commit -m "message"
+바로 commit이 이루어짐.
+
+5-4 . 2개 이상 파일
+$ git add newfile
+$ git add newfile2
+$ git commit -m "message"
+
+5-5 . 파일 일부만 스테이징 # 권장하지 않는다. 
+$ git add -p
+
+5-6 .  삭제 / 이름 변경
+$ git rm [파일 이름]
+$ git commit
+
+$ git mv [파일 이름] [파일 새 이름]
+$ git commit
+
+변경 후에는 꼭 commit을 하여야 한다.
+
+5-7 . 변경 부분 / 일부 tracked하지 않을 파일 지정
+$ git diff (Modified 파일의 변경된 부분을 보여줌)
+
+$ git diff -staged (Staged 파일의 변경된 부분을 보여줌)
+
+$ gitignore (git이 자동으로 tracked하지 않을 파일들을 지정) # Build 파일 등등
+
+6. Git 히스토리
+$ git log  # GUI 버전 권장!
+
+7. 실수 바로잡기
+
+7-1. 마지막 Commit 취소
+$ git reset HEAD^ (HEAD commit(마지막 commit)을 단순히 제거하는 방법으로 취소 ) 
+원격 저장소에 저장을 하여 다른 사람과 공유가 되었을 시 위 방법을 사용하지 못함.
+
+$ git revert HEAD (HEAD commit을 취소하는 commit을 추가로 만드는 것)
+위 명령어를 이용하여 해결 가능
+
+7-2. 같이 Commit을 해야 할 파일을 실수로 빼고 commit을 하였을 경우
+$ git commit --amend
+
+$ git commit -m "Add newfile"
+$ git add forgotten
+$ git commit --amend
+
+commit을 하였는데 forgotten 파일을 같이 못했다면 git add 후 --amend
+
+7-3. Staged를 되돌리기
+$ git restore --staged [파일 이름]
+
+7-4. Modified를 마지막 Commit 버전으로 되돌리기 (마지막 Commit 이후 변경한 내용을 다 삭제한다. 주의 깊게 사용!!)
+$ git restore [파일 이름]
+
+8. Tagging
+Annotated Tag : 태거 이름, 이메일, 날짜, 커멘트 등을 함께 저장. -a 옵션 사용
+Lightweight Tag : 단순 태깅
+
+$ git tag [-a] [태그 이름] [기타 옵션]
+
+
+
