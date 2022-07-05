@@ -52,8 +52,8 @@ $ git commit -m "message"
 바로 commit이 이루어짐.
 
 5-4 . 2개 이상 파일
-$ git add newfile
-$ git add newfile2
+$ git add [파일 이름]
+$ git add [파일 이름2]
 $ git commit -m "message"
 
 5-5 . 파일 일부만 스테이징 # 권장하지 않는다. 
