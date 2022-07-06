@@ -1,0 +1,32 @@
+1. Git Branching
+   `master` 브랜치
+
+- Git init에 의해 처음으로 저장소가 초기화될 때 기본으로 생성되는 브랜치
+
+$ git branch -a
+브랜치 목록을 보여줌.
+
+2. 브랜치 생성
+
+$ git branch [브랜치 이름] [시작위치(생략 가능)]
+시작 위치를 생략 시 HEAD가 됨. 커밋 ID 나 Tag 이름 가능
+
+$ git branch testing
+$ git branch -a
+브랜치 목록에 master 와 testing이 나온다.
+
+3. 작업 브랜치 변경
+
+$ git checkout [브랜치 이름]
+
+$ git checkout testing을 입력 시 testing으로 브랜치가 변경되고,
+$ git branch -a 를 입력시 출력되는 브랜치 목록에 testing 앞에 _이 붙는다.
+(_ 표시는 현재 브랜치를 나타냄.)
+
+4. 브랜치 합치기 Merge
+
+$ git merge [현재 브랜치에 합칠 브랜치]
+
+현재 master 브랜치를 이용 중일 때,
+testing 브랜치의 내용을 합치고 싶다면
+$ git merge testing 입력.
