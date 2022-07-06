@@ -30,3 +30,15 @@ $ git merge [현재 브랜치에 합칠 브랜치]
 현재 master 브랜치를 이용 중일 때,
 testing 브랜치의 내용을 합치고 싶다면
 $ git merge testing 입력.
+
+4-1. 브랜치 합치기 Rebase
+
+$ git rebase [합칠 브랜치]
+
+예를 들어 testing 브랜치를 master 브랜치에 rebase 할 경우
+
+$ git checkout testing -> testing 브랜치로 이동하여야 함.
+$ git rebase master  -> 현재 testing 브랜치가 master로 합쳐짐.
+
+But, rebase는 공개 저장소에 이미 Push한 commit을 rebase 하면 안된다.
+
