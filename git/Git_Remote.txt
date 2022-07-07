@@ -1,0 +1,44 @@
+1. 원격 저장소
+
+- 로컬 저장소
+- 원격 저장소
+
+git이나 ssh는 로컬 저장소(개인)
+github와 gitlab 등은 원격 저장소
+
+2. 최초 동기화 방법1 - 원격 저장소 Clone
+
+$ git clone [원격 주소]
+
+$ git clone https://github.com/jisssuu/summer-vacation.git
+
+2-1. 최초 동기화 방법2 - 원격 저장소 생성과 로컬 저장소 내용 보내기
+
+$ git remote add origin https://github.com/jisssuu/summer-vacation.git
+
+$ git branch -M master (현재 브랜치 이름을 master로 변경, 이미 master라면 할 필요 없음.)
+
+$ git push -u origin master (-u 옵션은 tracking 브랜치 연결을 위해 필요)
+
+remote 명령은 원격 관리
+push 명령은 로컬 저장소의 지정한 브랜치의 커밋을 원격으로 보낸다.
+
+3. 원격 저장소 확인
+
+$ git remote -v
+
+fetch 는 원격 저장소에서 로컬로 변경 이력 가져오는 것
+push는 변경 이력을 보내는 것
+
+4. 원격 브랜치 Remote Branch
+
+$ git branch -a
+브랜치 목록이 뜸.
+
+5. Fetch - 원격 저장소에서 최근 커밋(변경 이력) 가져오기
+
+$ git fetch [원격_이름] (이름 생략시 default는 origin)
+
+6. Merge - 원격 저장소에서 가져온 커밋을 로컬 브랜치와 합치기
+
+$ git merge [브랜치이름]
