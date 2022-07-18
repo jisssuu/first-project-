@@ -42,3 +42,5 @@ $ git fetch [원격_이름] (이름 생략시 default는 origin)
 6. Merge - 원격 저장소에서 가져온 커밋을 로컬 브랜치와 합치기
 
 $ git merge [브랜치이름]
+
+출처 : 
